@@ -1,12 +1,5 @@
 #include <Arduino.h>
 
-// NOTE: should use enum for states, not #defines, 
-//       no difference after compiled
-//define states used for switch case
-#define NEUTRAL     1
-#define UP_SHIFT    2
-#define DOWN_SHIFT  3
-
 //define pins that gear LEDs are on
 #define LED_1 10
 #define LED_2 11
@@ -24,6 +17,15 @@
 
 #define SHIFT_CUT (18)
 #define LAUNCH    (19)
+
+enum states{
+  first,
+  second,
+  third,
+  fourth,
+  fifth,
+  neutral
+};
 
 //button struct contains PIN num and current state
 struct Button {
@@ -49,8 +51,6 @@ void IRAM_ATTR isr2() {
 // IDEA: make all global variables into struct to emulate a namespace
 int UP_Flag = 0;
 int DOWN_Flag = 0;
-
-int state;
 
 // Neutral = 0
 // Gears 1-5 = 1-5
@@ -94,21 +94,35 @@ void setup() {
 // the loop function runs TO INFINITY AND BEYOND
 void loop() {
 
-  // NOTE: states should be a status not what we are currently doing
-  switch (state) {
-    case NEUTRAL:
+  enum states currentState = neutral;
+
+  switch (currentState) {
+    case neutral:
       //do some shit
       break;
 
-    case UP_SHIFT:
+    case first:
       //do some shit
       break;
 
-    case DOWN_SHIFT:
+    case second:
       //do some shit
+      break;
+
+    case third:
+
+      break;
+
+    case fourth:
+
+      break;
+
+    case fifth:
+
       break;
 
     default:
+      // Error recovory
       break;
   }
 
