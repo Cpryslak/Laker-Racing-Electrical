@@ -57,6 +57,16 @@ int gear = 0;
 void setup() {
   Serial.begin(115200);
 
+  digitalWrite(LED_1, LOW);
+  digitalWrite(LED_2, LOW);
+  digitalWrite(LED_3, LOW);
+  digitalWrite(LED_4, LOW);
+  digitalWrite(LED_5, LOW);
+  digitalWrite(LED_N, LOW);
+  digitalWrite(LED_LC, LOW);
+  digitalWrite(SHIFT_CUT, LOW);
+  digitalWrite(LAUNCH, LOW);
+
   pinMode(LED_1, OUTPUT);
   pinMode(LED_2, OUTPUT);
   pinMode(LED_3, OUTPUT);
