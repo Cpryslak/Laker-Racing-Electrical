@@ -38,23 +38,22 @@ struct Button {
 Button UP_Button = {UP_SHIFT_BTN, 0, false};
 Button DOWN_Button = {DWN_SHIFT_BTN, 0, false};
 
+// Up shift button interrupt handler
 void IRAM_ATTR isr1() {
-  digitalWrite(13, HIGH);   // turn the LED on (HIGH is the voltage level)
-  Serial.println("Button_Pressed_UP");
+  upFlag = true;
 }
 
+// Down shift button interrupt handler
 void IRAM_ATTR isr2() {
-  digitalWrite(13, LOW);   // turn the LED on (HIGH is the voltage level)
-  Serial.println("Button_Pressed_DOWN");
+  downFlag = true;
 }
 
-// IDEA: make all global variables into struct to emulate a namespace
-int UP_Flag = 0;
-int DOWN_Flag = 0;
+// NOTE: make all global variables into struct to emulate a namespace
+bool upFlag = 0;
+bool downFlag = 0;
 
-// Neutral = 0
-// Gears 1-5 = 1-5
-int gear = 0;
+enum states currentState;
+enum states lastState;
 
 
 void setup() {
@@ -87,26 +86,70 @@ void setup() {
   pinMode(DOWN_Button.PIN, INPUT_PULLUP);
   attachInterrupt(DOWN_Button.PIN, isr2, FALLING);
   
-  // NOTE: why is this line here?
-  digitalWrite(13, LOW);
+  // Set starting state
+  currentState = neutral;
+  lastState = neutral;
 }
 
 // the loop function runs TO INFINITY AND BEYOND
 void loop() {
 
-  enum states currentState = neutral;
+  // Handle state actions and changes if there was a button pressed
+  if(upFlag || downFlag) {
+    switch (currentState) {
+      case neutral:
+        //do some shit
+        break;
 
-  switch (currentState) {
+      case first:
+        //do some shit
+        break;
+
+      case second:
+        //do some shit
+        break;
+
+      case third:
+
+        break;
+
+      case fourth:
+
+        break;
+
+      case fifth:
+
+        break;
+
+      default:
+        // Error recovory
+        break;
+    }
+
+    updateLeds();
+  }
+}
+
+void startup() {
+
+}
+
+void updateLeds() {
+
+  // NOTE: use fall through switch-case to turn on 
+  //    LED's for current gear and all lower gear LED's?
+  switch(currentState)
+  {
     case neutral:
-      //do some shit
+      
       break;
 
     case first:
-      //do some shit
+
       break;
 
     case second:
-      //do some shit
+
       break;
 
     case third:
@@ -120,18 +163,8 @@ void loop() {
     case fifth:
 
       break;
-
+  
     default:
-      // Error recovory
       break;
   }
-
-  // NOTE: shouldn't flags be set in irq handler?
-  //       Where is the irq handler???
-  UP_Flag = digitalRead(UP_Button.PIN);
-  DOWN_Flag = digitalRead(DOWN_Button.PIN);
-}
-
-void startup() {
-
 }
