@@ -1,8 +1,8 @@
 #include <Arduino.h>
 
 //define states used for switch case
-#define NEUTRAL  1
-#define UP_SHIFT  2
+#define NEUTRAL     1
+#define UP_SHIFT    2
 #define DOWN_SHIFT  3
 
 //define pins that gear LEDs are on
@@ -13,8 +13,12 @@
 #define LED_5 14
 
 //define pins that other LEDs are on
-#define LED_N 16
+#define LED_N  16
 #define LED_LC 17
+
+// Define pins for shifting buttons
+#define UP_SHIFT_BTN (22)
+#define DWN_SHIFT_BTN (23)
 
 //button struct contains PIN num and current state
 struct Button {
@@ -24,8 +28,8 @@ struct Button {
 };
 
 // The following declares the buttons used for shifting
-Button UP_Button = {22, 0, false};
-Button DOWN_Button = {23, 0, false};
+Button UP_Button = {UP_SHIFT_BTN, 0, false};
+Button DOWN_Button = {DWN_SHIFT_BTN, 0, false};
 
 void IRAM_ATTR isr1() {
   digitalWrite(13, HIGH);   // turn the LED on (HIGH is the voltage level)
