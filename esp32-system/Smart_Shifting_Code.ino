@@ -64,7 +64,6 @@ void setup() {
   pinMode(LED_5, OUTPUT);
   pinMode(LED_N, OUTPUT);
   pinMode(LED_LC, OUTPUT);
-  pinMode(13, OUTPUT);
   pinMode(Shift_Cut, OUTPUT);   //Where is this going?
   pinMode(Launch, OUTPUT);      //Where is this going?
 
