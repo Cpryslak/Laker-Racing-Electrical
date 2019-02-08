@@ -1,5 +1,7 @@
 #include <Arduino.h>
 
+// NOTE: should use enum for states, not #defines, 
+//       no difference after compiled
 //define states used for switch case
 #define NEUTRAL     1
 #define UP_SHIFT    2
@@ -17,8 +19,11 @@
 #define LED_LC 17
 
 // Define pins for shifting buttons
-#define UP_SHIFT_BTN (22)
+#define UP_SHIFT_BTN  (22)
 #define DWN_SHIFT_BTN (23)
+
+#define SHIFT_CUT (18)
+#define LAUNCH    (19)
 
 //button struct contains PIN num and current state
 struct Button {
