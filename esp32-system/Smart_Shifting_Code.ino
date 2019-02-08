@@ -112,6 +112,8 @@ void loop() {
       break;
   }
 
+  // NOTE: shouldn't flags be set in irq handler?
+  //       Where is the irq handler???
   UP_Flag = digitalRead(UP_Button.PIN);
   DOWN_Flag = digitalRead(DOWN_Button.PIN);
 }

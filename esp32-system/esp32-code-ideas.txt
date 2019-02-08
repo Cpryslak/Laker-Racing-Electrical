@@ -1,0 +1,4 @@
+Ideas to implement (maybe):
+	- Use class for gear LED's
+	- Use proper seperation in different files
+	- Use makefile to compile	
