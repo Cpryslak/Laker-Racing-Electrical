@@ -1,13 +1,16 @@
 #include <Arduino.h>
 
+#define UP_SHIFT_BTN_PIN (23)
+#define DOWN_SHIFT_BTN_PIN (18)
+
 struct Button {
     const uint8_t PIN;
     uint32_t numberKeyPresses;
     bool pressed;
 };
 
-Button button1 = {23, 0, false};
-Button button2 = {18, 0, false};
+Button button1 = {UP_SHIFT_BTN_PIN, 0, false};
+Button button2 = {DOWN_SHIFT_BTN_PIN, 0, false};
 
 void IRAM_ATTR isr(void* arg) {
     Button* s = static_cast<Button*>(arg);
