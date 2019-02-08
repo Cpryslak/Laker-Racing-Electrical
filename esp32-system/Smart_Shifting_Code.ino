@@ -46,22 +46,21 @@ void IRAM_ATTR isr2() {
   Serial.println("Button_Pressed_DOWN");
 }
 
-
-int Shift_Cut = 18;   //assuming wired direct to ECU?
-int Launch = 19;      //assuming wired direct to ECU?
-
+// IDEA: make all global variables into struct to emulate a namespace
 int UP_Flag = 0;
 int DOWN_Flag = 0;
 
 int state;
 
-int gear = 0;
 // Neutral = 0
 // Gears 1-5 = 1-5
+int gear = 0;
+
 
 void setup() {
   Serial.begin(115200);
 
+  // Init pins to output LOW
   digitalWrite(LED_1, LOW);
   digitalWrite(LED_2, LOW);
   digitalWrite(LED_3, LOW);
@@ -82,17 +81,20 @@ void setup() {
   pinMode(Shift_Cut, OUTPUT);   //Where is this going?
   pinMode(Launch, OUTPUT);      //Where is this going?
 
+  // Attach shift pins to interrupt
   pinMode(UP_Button.PIN, INPUT_PULLUP);
   attachInterrupt(UP_Button.PIN, isr1, FALLING);
   pinMode(DOWN_Button.PIN, INPUT_PULLUP);
   attachInterrupt(DOWN_Button.PIN, isr2, FALLING);
   
+  // NOTE: why is this line here?
   digitalWrite(13, LOW);
 }
 
 // the loop function runs TO INFINITY AND BEYOND
 void loop() {
 
+  // NOTE: states should be a status not what we are currently doing
   switch (state) {
     case NEUTRAL:
       //do some shit
