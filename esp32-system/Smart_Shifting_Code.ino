@@ -1,11 +1,11 @@
 #include <Arduino.h>
 
 //define pins that gear LEDs are on
-#define LED_1 10
-#define LED_2 11
-#define LED_3 12
-#define LED_4 13
-#define LED_5 14
+#define LED_1 (10)
+#define LED_2 (11)
+#define LED_3 (12)
+#define LED_4 (13)
+#define LED_5 (14)
 
 //define pins that other LEDs are on
 #define LED_N  16
