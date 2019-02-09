@@ -56,6 +56,11 @@ enum states{
 };
 
 /** Header Funcion Definitions */
+#ifndef INIT
+#define INIT
+    void init();
+#endif
+
 #ifndef UPDATE_LEDS
 #define UPDATE_LEDS
     void updateLeds();
