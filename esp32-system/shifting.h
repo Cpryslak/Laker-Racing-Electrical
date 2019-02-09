@@ -49,19 +49,27 @@
 #endif
 
 /** Structs and Enum Definitions */
-struct Button {
+struct button {
   const uint8_t PIN;
   uint32_t numberKeyPresses;
   bool pressed;
 };
 
-enum states{
+enum states {
   first,
   second,
   third,
   fourth,
   fifth,
   neutral
+};
+
+struct globals {
+    struct button upBtn;
+    struct button dwnBtn;
+    enum states currentState;
+    bool upFlag;
+    bool dwnFlag;
 };
 
 /** Header Funcion Definitions */
