@@ -1,4 +1,10 @@
-void updateLeds() {
+/**
+ * Turns LED's to show what the current gear is. When in a gear, all 
+ * lower gear's lights will be set to be on along with current gear.
+ * 
+ * param gearState: gear to have the LED's set to indecate.
+ */
+void updateLeds(enum states gearState) {
 
   // Turn all LED's off
   digitalWrite(LED_N, LOW);
@@ -10,8 +16,7 @@ void updateLeds() {
 
   // Fall through switch to turn on LED's for current 
   // gear and all lower gears
-  switch(currentState)
-  {
+  switch(gearState) {
     case neutral:
       digitalWrite(LED_N, HIGH);
       break;
