@@ -133,38 +133,3 @@ void loop() {
 void startup() {
 
 }
-
-void updateLeds() {
-
-  // NOTE: use fall through switch-case to turn on 
-  //    LED's for current gear and all lower gear LED's?
-  switch(currentState)
-  {
-    case neutral:
-      
-      break;
-
-    case first:
-
-      break;
-
-    case second:
-
-      break;
-
-    case third:
-
-      break;
-
-    case fourth:
-
-      break;
-
-    case fifth:
-
-      break;
-  
-    default:
-      break;
-  }
-}
