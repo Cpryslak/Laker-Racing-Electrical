@@ -50,7 +50,7 @@
 
 /** Structs and Enum Definitions */
 struct button {
-  const uint8_t PIN;
+  const uint8_t pin;
   uint32_t numberKeyPresses;
   bool pressed;
 };
