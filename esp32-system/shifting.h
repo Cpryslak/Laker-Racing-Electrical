@@ -1,4 +1,7 @@
 
+/** Inclues */
+#include <Arduino.h>
+
 /** Defines */
 
 #ifndef LED_N
@@ -46,6 +49,12 @@
 #endif
 
 /** Structs and Enum Definitions */
+struct Button {
+  const uint8_t PIN;
+  uint32_t numberKeyPresses;
+  bool pressed;
+};
+
 enum states{
   first,
   second,

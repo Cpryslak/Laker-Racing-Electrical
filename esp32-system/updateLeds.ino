@@ -27,11 +27,9 @@ void updateLeds(enum states gearState) {
     case fourth:
       digitalWrite(LED_4, HIGH);
       
-
     case third:
       digitalWrite(LED_3, HIGH);
       
-
     case second:
       digitalWrite(LED_2, HIGH);
       
