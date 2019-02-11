@@ -1,0 +1,12 @@
+This is a list of input cases that need to be handled by the esp32 shifting code.
+
+- Both paddles pulled at same time.
+- Paddle is held down for several seconds.
+- Paddle is pulled again before shifting is done.
+    - Should the inputs be queued or ignored?
+        - Ignore since the second pull is likely to be accidental.
+            would also ignore some false positives from noise.
+- Pulling second paddle while first is still being pulled.
+- Trying to shift too high/low.
+
+- All combonations of other conditions
