@@ -1,3 +1,5 @@
+#include "shifting.h"
+
 /**
  * Turns LED's to show what the current gear is. When in a gear, all 
  * lower gear's lights will be set to be on along with current gear.

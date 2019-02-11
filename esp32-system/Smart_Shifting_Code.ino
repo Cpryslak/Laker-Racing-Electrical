@@ -38,15 +38,15 @@ void loop() {
   if(upFlag || downFlag) {
     switch (currentState) {
       case neutral:
-        //do some shit
+        
         break;
 
       case first:
-        //do some shit
+        
         break;
 
       case second:
-        //do some shit
+        
         break;
 
       case third:
